@@ -1,53 +1,38 @@
-## 基于SpringBoot+Mybatis+Thymeleaf商品信息管理系统
+##SpringBoot + Mybatis + Thymeleaf 기반 상품 정보 관리 시스템
 
-### 主要用到的技术：
-- 使用maven进行项目构建 
-- 使用Springboot+Mybatis搭建整个系统 
-- 使用Thymeleaf模板技术实现页面静态化
-- 使用框架Bootstrap、JQuery开发前端界面  
-- 使用MySQL和MongoDB分别存储数据和图片
-- 使用Redis缓存来提升数据库查询性能
+### 주로 사용되는 기술：
 
-
-### 主要分为四个模块:
+-프로젝트 구축에 maven 사용
+-Springboot + Mybatis를 사용하여 전체 시스템 구축
+-Thymeleaf 템플릿 기술을 사용하여 정적 페이지 실현
+-프레임 워크 Bootstrap 및 JQuery를 사용하여 프런트 엔드 인터페이스 개발
+-MySQL 및 MongoDB를 사용하여 데이터와 이미지를 별도로 저장
+-Redis 캐시를 사용하여 데이터베이스 쿼리 성능 향상
 
 
-- **用户管理模块** 
-：用户登录、注册、密码找回（通过邮箱方式）、用户信息修改、密码修改
+### 4 개의 모듈
+- **사용자 관리 모듈** 
+： 사용자 로그인, 등록, 비밀번호 검색 (이메일), 사용자 정보 수정, 비밀번호 수정
 
-- **仪表盘管理模块**
-：展示当前月收入及其环比（环比=（当前月收入 - 上个月收入）/ 上个月收入）、当前月订单数及其环比、网站访问量、当前月退单数及其环比、以条形图的形式(使用jquery插件）展示最近30天每天的收入和订单数
+- **대시 보드 관리 모듈**
+: 현재 월별 수입 및 연쇄 비율 (연쇄 비 = (현재 월 수입-전월 수입) / 지난달 수입), 당월 주문 수 및 연쇄 비율, 웹 사이트 방문수, 수를 표시합니다. 이번 달의 환불 수와 체인 비율, 그리고 지난 30 일 동안의 일일 수입과 주문 수를 보여주는 그래프 양식 (jquery 플러그인 사용)
 
-- **商品管理模块**
-：商品增删改查、商品图片导入（存储在MongoDB）、导出商品报表、商品分类增删改查、库存查改，库存不足和积货提醒、商品回收和恢复。
+- **상품 관리 모듈**
+: 상품 추가, 삭제 및 수정 확인, 상품 사진 가져 오기 (MongoDB에 저장), 수출 상품 보고서, 상품 분류 추가, 삭제 및 수정 확인, 재고 확인 및 수정, 재고 부족 및 축적 알림, 상품 재활용 및 복원
 
-- **订单管理模块**
-：订单查询查看、订单退款管理（查看和审批）、发货管理、物流公司管理、快递跟踪（调用快递100接口）
+- **주문 관리 모듈**
+： 주문 조회 조회, 주문 환불 관리 (조회 및 ​​승인), 배송 관리, 물류 회사 관리, 신속 추적 (통화 100 인터페이스)
 
-### 优化：
-1. 通过使用AOP的方式计算并打印各种方法的耗时日志，有利于后续的代码优化
-2. 通过拦截器实现反SQL注入，防止用户输入SQL敏感字符串
+### 최적화：
+1. AOP를 사용하여 시간이 많이 걸리는 다양한 방법의 로그를 계산하고 인쇄하여 후속 코드 최적화에 도움이됩니다.
+2. 사용자가 SQL에 민감한 문자열을 입력하지 못하도록 인터셉터를 통해 SQL 방지 삽입을 구현합니다.
 
-### 问题：如何启动本系统？
-1. 将sql文件在MySQL运行生成表和数据，启动Redis服务， MongoDB选择性开启（不开启时会报错但不影响系统正常访问，用到上传照片功能需要启动MongoDB）
-2. 最后直接启动Application类后访问[http://localhost:8080/user/login](http://localhost:8080/user/login)就可以进入本系统！
-
-
-## 预览效果
-![首页](https://github.com/zaiyunduan123/jesper_shop/blob/master/src/main/resources/static/img/shop-image/board.png)
-
-![商品管理](https://github.com/zaiyunduan123/jesper_shop/blob/master/src/main/resources/static/img/shop-image/item.png)
-
-![商品修改](https://github.com/zaiyunduan123/jesper_shop/blob/master/src/main/resources/static/img/shop-image/edit.png)
-
-![订单管理](https://github.com/zaiyunduan123/jesper_shop/blob/master/src/main/resources/static/img/shop-image/order.png)
-
-![物流公司](https://github.com/zaiyunduan123/jesper_shop/blob/master/src/main/resources/static/img/shop-image/kuaidi.png)
-
-![查询](https://github.com/zaiyunduan123/jesper_shop/blob/master/src/main/resources/static/img/shop-image/search.png)
+### 시스템을 시작하는 방법
+1. MySQL에서 sql 파일을 실행하여 테이블과 데이터를 생성하고, Redis 서비스를 시작하고, 선택적으로 MongoDB를 활성화합니다 (활성화되지 않은 경우 오류가보고되지만 시스템의 정상적인 액세스에는 영향을주지 않습니다. 사진을 업로드하려면 MongoDB를 시작해야합니다)
+2. 마지막으로 Application 클래스를 직접 시작하고 [http : // localhost : 8080 / user / login] (http : // localhost : 8080 / user / login)을 방문하여 시스템에 들어갑니다!
 
 
-## 附加-数据库设计
+## 추가 데이터베이스 설계
 ```mysql
 DROP TABLE IF EXISTS `kuaidi100_delivery`;
 CREATE TABLE `kuaidi100_delivery` (
