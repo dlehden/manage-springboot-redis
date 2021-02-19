@@ -3,10 +3,15 @@
 ### 주로 사용되는 기술：
 
 -프로젝트 구축에 maven 사용
+
 -Springboot + Mybatis를 사용하여 전체 시스템 구축
+
 -Thymeleaf 템플릿 기술을 사용하여 정적 페이지 실현
+
 -프레임 워크 Bootstrap 및 JQuery를 사용하여 프런트 엔드 인터페이스 개발
+
 -MySQL 및 MongoDB를 사용하여 데이터와 이미지를 별도로 저장
+
 -Redis 캐시를 사용하여 데이터베이스 쿼리 성능 향상
 
 
