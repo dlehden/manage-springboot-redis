@@ -11,10 +11,10 @@ public class Application {
 
 	public static void main(String[] args) {
 		ConfigurableApplicationContext context = SpringApplication.run(Application.class, args);
-		//计数线程
+		//계산 
 		RunnableThreadWebCount runnableThreadWebCount = new RunnableThreadWebCount();
 		runnableThreadWebCount.run();
-		//计时器线程
+		//타이머 스레드 
 		Timers timers = new Timers();
 		timers.run();
 
